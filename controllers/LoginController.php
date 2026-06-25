@@ -2,8 +2,9 @@
 
 namespace Controllers;
 
-use Model\Usuario;
 use MVC\Router;
+use Model\Usuario;
+use Model\Rol;
 
 class LoginController {
     public static function login(Router $router) {
@@ -34,16 +35,16 @@ class LoginController {
                     if(password_verify($auth->password_hash, $usuario->password_hash)) {
                         //Iniciar sesión
                         if(!isset($_SESSION)) session_start();
-                        
+
+                        $rol = Rol::where('id',$usuario->id_rol);
+
                         $_SESSION['id'] = $usuario->id;
+                        $_SESSION['rol'] = $rol->nombre_rol;
                         $_SESSION['username'] = $usuario->username;
                         $_SESSION['id_personal'] = $usuario->id_personal;
-                        $_SESSION['id_rol'] = $usuario->id_rol;
                         $_SESSION['login'] = true;
                         
-                        $usuario->ultimo_acceso = date('Y-m-d H:i:s');
-                        
-                        
+                        $usuario->ultimo_acceso = date('Y-m-d H:i:s');                        
                         $usuario->guardar();
                         
                         header('Location: /dashboard');

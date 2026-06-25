@@ -9,13 +9,16 @@ use Controllers\UsuariosController;
 use Controllers\EmpresaController;
 use Controllers\PolizaController;
 use Controllers\EquipoController;
+use Controllers\PersonalController;
 use Controllers\TicketController;
 
 $router = new Router();
 
 //Rutas del Login
-$router->get('/', [LoginController::class, 'Login']);
-$router->post('/', [LoginController::class, 'Login']);
+$router->get('/', [LoginController::class, 'login']);
+$router->post('/', [LoginController::class, 'login']);
+
+$router->get('/personal', [PersonalController::class, 'personal']);
 
 /**************************************************************************************/
 

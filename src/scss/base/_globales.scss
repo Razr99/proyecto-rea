@@ -106,3 +106,17 @@ img {
 input[readonly], input:disabled {
     cursor: not-allowed;
 }
+
+
+/*****************************************/
+
+/*AG GRID*/
+/* En tu archivo CSS */
+.my-custom-theme {
+    --ag-background-color: rgb(249, 245, 227);
+    --ag-foreground-color: rgb(126, 46, 132);
+    --ag-header-text-color: rgb(204, 245, 172);
+    --ag-header-background-color: rgb(209, 64, 129);
+    --ag-odd-row-background-color: rgba(0, 0, 0, 0.03);
+    height: 50rem;
+}

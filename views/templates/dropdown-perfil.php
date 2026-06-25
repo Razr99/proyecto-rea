@@ -3,7 +3,7 @@
         <img src="<?php echo $_SESSION['usuario']['avatar'] ?? '/build/img/dashboard/user-default.png'; ?>" alt="Avatar del usuario">
         
         <div class="texto-perfil">
-            <span class="nombre-usuario"><?php echo $_SESSION['nombre'] ?? 'Sin nombre'; ?></span>
+            <span class="nombre-usuario"><?php echo $_SESSION['username'] ?? 'Sin nombre'; ?></span>
         
         <span class="tipo-usuario">
             <?php echo $_SESSION['rol']; ?>

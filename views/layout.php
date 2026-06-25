@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/build/vendor/css/flatpickr-dark.css">
     <link rel="stylesheet" href="/build/css/app.css">
     <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
 </head>
 <body>
     <?php echo $contenido; ?>
