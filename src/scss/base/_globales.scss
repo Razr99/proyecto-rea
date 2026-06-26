@@ -101,6 +101,19 @@ img {
     }
 }
 
+.btn-regresar {
+    button {
+        @include m.botonCorto(v.$gris-oscuro, v.$blanco);
+        width: auto;
+        margin-top: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    input {
+        @include m.botonCorto(v.$amarillo-intenso, v.$blanco);
+    }
+}
+
 
 //CAMPOS DE FORMS DESHABILITADOS 
 input[readonly], input:disabled {
@@ -119,4 +132,13 @@ input[readonly], input:disabled {
     --ag-header-background-color: rgb(209, 64, 129);
     --ag-odd-row-background-color: rgba(0, 0, 0, 0.03);
     height: 50rem;
+}
+
+
+/*************/
+/* ICONOS */
+
+.fa-asterisk {
+    font-size: 0.8rem;
+    color: v.$rojo-inactivo-texto;
 }

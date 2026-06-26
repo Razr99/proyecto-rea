@@ -19,6 +19,7 @@ $router->get('/', [LoginController::class, 'login']);
 $router->post('/', [LoginController::class, 'login']);
 
 $router->get('/personal', [PersonalController::class, 'personal']);
+$router->get('/personal/agregar', [PersonalController::class, 'personalAgregar']);
 
 /**************************************************************************************/
 

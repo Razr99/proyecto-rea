@@ -21,23 +21,15 @@
         </div>
 
         <div class="contenedor-buscador-agregar">
-            <div class="contenedor-buscador">
-                <i class="fa-solid fa-magnifying-glass icono-buscador"></i>
-                <input 
-                    type="text"
-                    class="input-buscador filtro"
-                    placeholder="Buscar por nombre, correo o n° empleado..."
-                >
-            </div>
             <div class="btn-azul btn-agregar">
-                <button onclick="window.location.href='/usuarios/agregar-trabajador'">
-                    <i class="fa-solid fa-plus"></i> Agregar trabajador
+                <button onclick="window.location.href='/personal/agregar'">
+                    <i class="fa-solid fa-plus"></i> Agregar empleado
                 </button>
             </div>
         </div>
 
         <div class="contenedor-tabla">
-            <div id="myGrid" class="" style="height: 60rem;" data-grid="<?php echo $personal; ?>"></div>
+            <div id="personal" class="" style="height: 60rem;" data-personal="<?php echo htmlspecialchars(json_encode($personal), ENT_QUOTES, 'UTF-8'); ?>"></div>
         </div>
     </div>
 </div>

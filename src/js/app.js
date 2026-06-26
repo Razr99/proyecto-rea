@@ -507,6 +507,12 @@ function iniciarTomarTicket() {
 
 function mostrarDataGrid() {
 
+    const tabla = document.querySelector("#personal");
+    if(!tabla) return;
+    const datosRaw = tabla.dataset.personal;
+    const datosPersonal = datosRaw ? JSON.parse(datosRaw) : [];
+    let cout = 1;
+
     const myTheme = agGrid.themeQuartz.withPart(agGrid.colorSchemeDarkBlue);
 
     let gridApi;
@@ -515,19 +521,34 @@ function mostrarDataGrid() {
         theme: myTheme,
         // Data to be displayed
         columnDefs: [
-            { field: "make" },
-            { field: "model" },
-            { field: "price" },
-            { field: "electric" },
+            { field: "numero_empleado", headerName: "No. Empleado" , pinned: "left", width: 120 },
+            { field: "nombre", headerName: "Nombre" },
+            { field: "apellidos", headerName: "Apellidos" },
+
+            { field: "puesto", headerName: "Puesto" },
+            { field: "area", headerName: "Área" },
+            { field: "lugar_trabajo", headerName: "Lugar de Trabajo" },
+            { field: "plaza", headerName: "Plaza" },
+            { field: "via", headerName: "Via" },
+
+            { field: "correo", headerName: "Correo" },
+            { field: "telefono", headerName: "Teléfono" },
+            { field: "extension", headerName: "Ext." },
+            { field: "celular", headerName: "Celular", hide:true },
+
+            { 
+                field: "estatus",
+                headerName: "Estatus",
+                width: 100,
+                valueFormatter: params => {
+                    return (params.value == 1) ? 'Activo' : 'Baja';
+                }
+            },
+
+            { field: "fecha_alta", headerName: "Fecha de Alta", hide:true },
+            { field: "fecha_baja", headerName: "Fecha de Baja", hide:true },
         ],
-        rowData: [
-            { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-            { make: "Ford", model: "F-Series", price: 33850, electric: false },
-            { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-            { make: "Mercedes", model: "EQA", price: 48890, electric: true },
-            { make: "Fiat", model: "500", price: 15774, electric: false },
-            { make: "Nissan", model: "Juke", price: 20675, electric: false },
-        ],
+        rowData: datosPersonal,
         // Columns to be displayed (Should match rowData properties)
         defaultColDef: {
             editable: false,
@@ -577,5 +598,5 @@ function mostrarDataGrid() {
         pagination: true
     };
     // Create Grid: Create new grid within the #myGrid div, using the Grid Options object
-    gridApi = agGrid.createGrid(document.querySelector("#myGrid"), gridOptions);
+    gridApi = agGrid.createGrid(tabla, gridOptions);
 }

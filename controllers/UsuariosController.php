@@ -42,7 +42,7 @@ class UsuariosController {
         $trabajador = new Trabajador();
         rol(['Administrador']);
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $trabajador->sincronizar($_POST);
             $alertas = $trabajador->validarNuevoEmpleado();
 

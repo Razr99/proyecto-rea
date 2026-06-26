@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Personal;
+use Model\Via;
 use MVC\Router;
 
 class PersonalController {
@@ -13,11 +14,31 @@ class PersonalController {
         $alertas = [];
         rol(['Administrador']);
 
-        $personal = new Personal;
+        $personal = Personal::AllPersonal();
 
         $router->render('dashboard/personal/personal',[
-            'titulo' => 'Personal de REA',
-            'personal' => $personal::all()
+            'titulo' => 'Personal',
+            'personal' => $personal
+        ]);
+    }
+
+    public static function personalAgregar(Router $router) {
+
+        isAuth();
+        $alertas = [];
+        rol(['Administrador']);
+        $via = Via::all();
+        $personal = new Personal();
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        }
+
+        $alertas = Personal::getAlertas();
+
+        $router->render('dashboard/personal/personal-agregar', [
+            'titulo' => 'Agregar Personal',
+            'via' => $via,
+            'alertas' => $alertas
         ]);
     }
 }
